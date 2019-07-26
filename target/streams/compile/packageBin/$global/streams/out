@@ -1,0 +1,147 @@
+[0m[[0m[0minfo[0m] [0m[0mPackaging /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/hello-scala_2.12-0.1.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/traits[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/traits[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/scala_test/VanillaDonut.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/scala_test/VanillaDonut.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/di/DonutDatabase.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/di/DonutDatabase.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/abct/CaseChildClass.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/abct/CaseChildClass.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/allaboutscala/chapter/one/tutorial06/HelloWorldWithArguments$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/com/allaboutscala/chapter/one/tutorial06/HelloWorldWithArguments$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/spark/SimpleApp$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/spark/SimpleApp$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/traits/Main.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/traits/Main.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/allaboutscala/chapter/one/tutorial10/HelloWorldWithScalaLogging$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/com/allaboutscala/chapter/one/tutorial10/HelloWorldWithScalaLogging$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/Donut$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/Donut$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/scala_test/Donut$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/scala_test/Donut$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/scala_test/Donut.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/scala_test/Donut.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/com[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/allaboutscala/chapter/one/tutorial10/HelloWorldWithScalaLogging$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/com/allaboutscala/chapter/one/tutorial10/HelloWorldWithScalaLogging$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/di/DonutInventoryService.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/di/DonutInventoryService.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/DonutShoppingCartCalculator$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/DonutShoppingCartCalculator$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/di/DonutShoppingCartService.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/di/DonutShoppingCartService.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/VanillaDonut.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/VanillaDonut.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/allaboutscala/chapter/one/tutorial10[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/com/allaboutscala/chapter/one/tutorial10[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/allaboutscala/chapter/one/tutorial07/HelloWorldWithArgumentsDebug$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/com/allaboutscala/chapter/one/tutorial07/HelloWorldWithArgumentsDebug$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/allaboutscala/chapter/one/tutorial04/HelloWorld$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/com/allaboutscala/chapter/one/tutorial04/HelloWorld$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/ShoppingCart3.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/ShoppingCart3.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/traits/DonutShoppingCart.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/traits/DonutShoppingCart.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/di/Main.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/di/Main.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/allaboutscala/chapter/one/tutorial06[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/com/allaboutscala/chapter/one/tutorial06[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/allaboutscala/chapter/one/tutorial10/HelloWorldWithScalaLogging.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/com/allaboutscala/chapter/one/tutorial10/HelloWorldWithScalaLogging.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/allaboutscala/chapter/one/tutorial05/HelloWorldMain.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/com/allaboutscala/chapter/one/tutorial05/HelloWorldMain.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/ShoppingCart2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/ShoppingCart2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/traits/Main$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/traits/Main$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/scala_test[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/scala_test[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/allaboutscala/chapter/one[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/com/allaboutscala/chapter/one[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/abct/ChildClass.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/abct/ChildClass.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/allaboutscala/chapter/one/tutorial07/HelloWorldWithArgumentsDebug$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/com/allaboutscala/chapter/one/tutorial07/HelloWorldWithArgumentsDebug$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/traits/DonutShoppingCartDao.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/traits/DonutShoppingCartDao.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/abct/Main$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/abct/Main$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/Donut.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/Donut.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/allaboutscala/chapter/one/tutorial05[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/com/allaboutscala/chapter/one/tutorial05[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/traits/DonutInventoryService.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/traits/DonutInventoryService.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/di/Main$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/di/Main$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/di/DonutShoppingCartDao.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/di/DonutShoppingCartDao.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/allaboutscala/chapter/one/tutorial07[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/com/allaboutscala/chapter/one/tutorial07[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/scala_test/DonutStore.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/scala_test/DonutStore.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/allaboutscala/chapter/one/tutorial05/HelloWorldMain$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/com/allaboutscala/chapter/one/tutorial05/HelloWorldMain$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/spark/SimpleApp.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/spark/SimpleApp.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/CaseDonut.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/CaseDonut.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/Main.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/Main.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/allaboutscala/chapter/one/tutorial06/HelloWorldWithArguments$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/com/allaboutscala/chapter/one/tutorial06/HelloWorldWithArguments$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/scala_test/GlazedDonut.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/scala_test/GlazedDonut.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/ShoppingCart.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/ShoppingCart.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/allaboutscala/chapter/one/tutorial06/HelloWorldWithArguments.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/com/allaboutscala/chapter/one/tutorial06/HelloWorldWithArguments.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/di[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/di[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/Main$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/Main$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/allaboutscala/chapter/one/tutorial04/HelloWorld.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/com/allaboutscala/chapter/one/tutorial04/HelloWorld.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/scala_test/DonutDatabase.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/scala_test/DonutDatabase.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/allaboutscala/chapter[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/com/allaboutscala/chapter[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/DonutShoppingCartCalculator.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/DonutShoppingCartCalculator.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/allaboutscala/chapter/one/tutorial04/HelloWorld$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/com/allaboutscala/chapter/one/tutorial04/HelloWorld$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/di/DonutShoppingCart.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/di/DonutShoppingCart.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/abct/AbstractClass.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/abct/AbstractClass.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/allaboutscala/chapter/one/tutorial07/HelloWorldWithArgumentsDebug.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/com/allaboutscala/chapter/one/tutorial07/HelloWorldWithArgumentsDebug.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/abct/Main.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/abct/Main.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/allaboutscala/chapter/one/tutorial04[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/com/allaboutscala/chapter/one/tutorial04[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/di/CassandraDonutStore.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/di/CassandraDonutStore.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/abct/ChildClass$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/abct/ChildClass$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/GlazedDonut.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/GlazedDonut.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/allaboutscala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/com/allaboutscala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/CaseDonut$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/CaseDonut$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/abct[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/abct[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/scala/abct/CaseChildClass$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/scala/abct/CaseChildClass$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	hello/world/spark[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/jasonchang/Google 雲端硬碟/Work/OffGitProjects/Hello-Scala/target/scala-2.12/classes/hello/world/spark[0m
+[0m[[0m[0minfo[0m] [0m[0mDone packaging.[0m
