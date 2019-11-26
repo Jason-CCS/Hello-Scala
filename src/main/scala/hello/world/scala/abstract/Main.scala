@@ -1,4 +1,4 @@
-package hello.world.scala.abct
+package hello.world.scala.`abstract`
 
 object Main {
   def main(args: Array[String]): Unit = {
