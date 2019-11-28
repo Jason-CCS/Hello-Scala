@@ -1,4 +1,4 @@
-package hello.world.scala
+package hello.world.scala.donut
 
 object DonutShoppingCartCalculator {
   println("\nStep 2: How to define a global field")

@@ -1,4 +1,4 @@
-package hello.world.scala
+package hello.world.scala.donut
 
 class Donut(name: String, productCode: Option[Long] = None){
 

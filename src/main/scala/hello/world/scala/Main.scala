@@ -1,5 +1,7 @@
 package hello.world.scala
 
+import hello.world.scala.donut.{Donut, DonutShoppingCartCalculator}
+
 object Main {
   def main(args: Array[String]): Unit = {
     val glazedDonut = Donut("Glazed Donut")

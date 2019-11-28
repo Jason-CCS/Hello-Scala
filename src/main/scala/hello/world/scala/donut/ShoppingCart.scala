@@ -1,4 +1,4 @@
-package hello.world.scala
+package hello.world.scala.donut
 
 class ShoppingCart[D <: Donut](donuts: Seq[D]) {
 
