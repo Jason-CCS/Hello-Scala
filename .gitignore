@@ -3,5 +3,4 @@
 project/
 target/
 config/
-input-data/
-output-data/
+output/
