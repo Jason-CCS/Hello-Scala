@@ -1,10 +1,50 @@
 package hello.world.spark
 
+import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}
 
 object SimpleApp {
   def main(args: Array[String]): Unit = {
-    removeOutliers
+    test2()
+  }
+
+  def solution(rdd: RDD[Int], m: Int, n: Int): Array[RDD[Int]] = {
+    // your code start here
+    val count = rdd.count()
+    val myPart = rdd.filter(i => (i < count * m / (m + n)))
+    val herPart = rdd.filter(i => (i > count * m / (m + n)))
+    Array(myPart, herPart)
+  }
+
+  def test1(): Unit = {
+    val numbers = Range(1, 501)
+    val sc = new SparkContext(new SparkConf().setAppName("spark app").setMaster("local"))
+    val rdd = sc.parallelize(numbers)
+    rdd.collect().foreach(println(_))
+    val m = 2
+    val n = 3
+    val output = SimpleApp.solution(rdd, m, n)
+    if (output(0).take(5).sameElements(Array(1, 2, 3, 4, 5)) & output(1).take(5).sameElements(Array(201, 202, 203, 204, 205))) print("true")
+    else print("false")
+  }
+
+  def solution2(rdd1:RDD[(String, String)], rdd2:RDD[(String, Int)]) = {
+    rdd1.map(t=>t.swap).join(rdd2).map(t => (t._2._1, t._2._2)).reduceByKey((x, y) => x+y)
+  }
+
+  def test2(): Unit = {
+    val basket = List(("label1", "apple"), ("label2", "orange"), ("label3", "guava"), ("label1", "milk"), ("label3", "orange"))
+    val price = List(("apple", 5), ("orange", 3), ("guava", 4), ("milk", 10))
+    val sc = new SparkContext(new SparkConf().setAppName("spark app").setMaster("local"))
+    val basketRDD = sc.parallelize(basket)
+    val priceRDD = sc.parallelize(price)
+    val resultRDD = SimpleApp.solution2(basketRDD, priceRDD)
+    val result = resultRDD.map(t => t._1 match {
+      case "label1" => t._2 == 15
+      case "label2" => t._2 == 3
+      case "label3" => t._2 == 7
+    }).reduce((x, y) => x|y)
+    print(result)
   }
 
   /**
@@ -32,6 +72,8 @@ object SimpleApp {
     val input = sc.wholeTextFiles("./input")
     println(input.collectAsMap())
   }
+
+
 
   /**
    * English alphabet influence rank
