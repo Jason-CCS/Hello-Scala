@@ -1,4 +1,4 @@
-package com.allaboutscala.chapter.pre.tutorial07
+package com.allaboutscala.chapter.one.tutorial07
 
 object HelloWorldWithArgumentsDebug extends App {
   println("Hello world with arguments scala application!")

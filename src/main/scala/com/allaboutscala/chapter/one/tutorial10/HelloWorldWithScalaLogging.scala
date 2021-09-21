@@ -1,4 +1,4 @@
-package com.allaboutscala.chapter.pre.tutorial10
+package com.allaboutscala.chapter.one.tutorial10
 
 import com.typesafe.scalalogging.LazyLogging
 

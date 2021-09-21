@@ -1,4 +1,4 @@
-package com.allaboutscala.chapter.pre.tutorial05
+package com.allaboutscala.chapter.one.tutorial05
 
 object HelloWorldMain {
   def main(args: Array[String]): Unit = {
