@@ -1,4 +1,4 @@
-package hello.world.scala._01_.string
+package hello.world.scala.string
 
 object String1 extends App {
   println("Step 1: Using String interpolation to print a variable")

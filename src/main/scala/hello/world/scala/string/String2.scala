@@ -1,4 +1,4 @@
-package hello.world.scala._01_.string
+package hello.world.scala.string
 
 object String2 extends App {
   println("\nTip: stripMargin using a different character")
