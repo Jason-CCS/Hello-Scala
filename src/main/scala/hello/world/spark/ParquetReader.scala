@@ -23,6 +23,7 @@ object ParquetReader {
 
   def getAsRowList(): util.List[Row] = {
     df.takeAsList(df.count().toInt)
+//    val arrayRow = df.collect()
   }
 
   def getColumns(): Array[String] = {
