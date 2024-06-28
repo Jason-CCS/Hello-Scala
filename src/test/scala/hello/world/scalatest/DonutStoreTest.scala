@@ -1,8 +1,10 @@
-package hello.world.scala.scala_test
+package hello.world.scalatest
 
-import org.scalatest.{FlatSpec, Matchers}
+import hello.world.scala.scala_test.DonutStore
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-class DonutStoreTest extends FlatSpec with Matchers {
+class DonutStoreTest extends AnyFlatSpec with Matchers {
   behavior of "DonutStore class"
 
   // equity test

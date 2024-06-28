@@ -1,7 +1,10 @@
 package hello.world.scala.collection.function
 
-object Main {
-  def main(args: Array[String]): Unit = {
+import org.scalatest.funsuite
+import org.scalatest.funsuite.AnyFunSuite
+
+class Main extends AnyFunSuite {
+  def old(args: Array[String]): Unit = {
     println("element order in set")
     println(Set("a", "b", "c"))
     println(Set("b", "c", "a"))
@@ -36,10 +39,22 @@ object Main {
 
     println("flatMap()")
     println(Set(donuts, drink))
-    println(donuts.flatMap( d => d.split("a")))
+    println(donuts.flatMap(d => d.split("a")))
+
+    val seq = Seq("Reduce example to replace string existing here", "here", "existing", "replace")
+    println(seq.reduce(reduceExample))
 
   }
 
   val donuts: Set[String] = Set("Plain", "Glazed", "Strawberry")
   val drink: Set[String] = Set("Tea", "Coffee", "Milk")
+
+  def reduceExample(a: String, b: String): String = {
+    a + ", " + b
+  }
+
+  test("reduce") {
+    val seq = Seq("String 1", "String 2", "String 3", "String 4", "String 5")
+    println(seq.reduce(reduceExample))
+  }
 }

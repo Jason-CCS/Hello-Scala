@@ -15,6 +15,6 @@ object PolymorphicFunc extends App{
     }
   }
 
-  println(s"Result of applyDiscountWithReturnType with Char parameter = ${applyDiscountWithReturnType[Char]('U')}")
+  println(s"Result of applyDiscountWithReturnType with Char parameter = ${applyDiscountWithReturnType[String]("Hello")}")
 
 }
