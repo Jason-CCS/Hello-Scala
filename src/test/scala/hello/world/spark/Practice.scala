@@ -34,20 +34,7 @@ class Practice extends AnyFunSuite {
     //    counts.saveAsTextFile("./output")
   }
 
-  test("intersection") {
-    val visits_2023 = sc.textFile("input/visits_2023.csv")
-    val visits_2024 = sc.textFile("input/visits_2024.csv")
-
-    // Task 1: Get the intersection of both RDDs
-    val commonVisits = visits_2023.intersection(visits_2024) // return distinct intersection only, see the definition of this function
-    commonVisits.collect().foreach(println)
-
-    // Task 2: Get the spots which became popular in 2024
-    val newPopular = visits_2024.union(visits_2023).distinct().subtract(visits_2023.distinct())
-    newPopular.collect().foreach(println)
-  }
-
-  test("mapPartitions") {
+  test("mapPartitions and groupByKey") {
     val gradesData = sc.textFile("./input/students_grades.csv")
 
     val studentGrades = gradesData.map(line => {
@@ -72,7 +59,20 @@ class Practice extends AnyFunSuite {
     studentAvgGrades.collect().foreach(println(_))
   }
 
-  test("join, test if the total amount of basket is equal to 15, 3, 7.") {
+  test("union and intersection") {
+    val visits_2023 = sc.textFile("input/visits_2023.csv")
+    val visits_2024 = sc.textFile("input/visits_2024.csv")
+
+    // Task 1: Get the intersection of both RDDs
+    val commonVisits = visits_2023.intersection(visits_2024) // return distinct intersection only, see the definition of this function
+    commonVisits.collect().foreach(println)
+
+    // Task 2: Get the spots which became popular in 2024
+    val newPopular = visits_2024.union(visits_2023).distinct().subtract(visits_2023.distinct())
+    newPopular.collect().foreach(println)
+  }
+
+  test("join and reduceByKey") {
     val basket = List(("label1", "apple"), ("label2", "orange"), ("label3", "guava"), ("label1", "milk"), ("label3", "orange"))
     val price = List(("apple", 5), ("orange", 3), ("guava", 4), ("milk", 10))
     val basketRDD = sc.parallelize(basket)
@@ -88,7 +88,7 @@ class Practice extends AnyFunSuite {
     println(result)
   }
 
-  test("aggregateByKey") {
+  test("aggregateByKey and reduceByKey") {
     val studentGrades = Array(("Alice", "Math", 85), ("Alice", "English", 92), ("Alice", "Physics", 78), ("Bob", "Math", 90), ("Bob", "English", 95), ("Bob", "Physics", 88))
     val rdd = sc.parallelize(studentGrades).cache
     // 1. Calculate the total sum of scores for each student across all subjects and store them in a RDD. The resultant RDD should have records in the format (studentName, totalScore).
@@ -114,6 +114,14 @@ class Practice extends AnyFunSuite {
 
     productTotalQuantity.sortByKey().collect.foreach(println)
   }
+
+  test("cogroup"){
+
+  }
+
+  test("cartesian"){}
+
+
 
   /**
    * Below are Personal practices.
@@ -211,61 +219,5 @@ class Practice extends AnyFunSuite {
     println(top)
 
     joined.filter(col("salary") === top).select("worker_title").show(false)
-  }
-
-  case class MachineAction(machine: String, state: String, epochTime: Long)
-
-  case class StateChangeHistory(machine: String, startState: String, endState: String, startEpochTime: Long, endEpochTime: Long)
-
-  def calculate(logs: List[MachineAction]): List[StateChangeHistory] = {
-    val resultList = ListBuffer[StateChangeHistory]()
-
-    logs.foldLeft(Map.empty[String, (StateChangeHistory, Int)]) { case (map, record) =>
-      val currentState = record.state
-      if (!map.contains(record.machine)) {
-        val newHistory = StateChangeHistory(record.machine, currentState, "", record.epochTime, 0)
-        resultList += newHistory
-        map + (record.machine -> (newHistory, resultList.size - 1))
-      } else {
-        val oldHistory = map(record.machine)._1
-        val oldIndex = map(record.machine)._2
-        if (oldHistory.endState.isEmpty) { // if endState is empty, update the existing history record
-          if (oldHistory.startState != currentState) {
-            val newHistory = oldHistory.copy(endState = record.state, endEpochTime = record.epochTime)
-            resultList(oldIndex) = newHistory
-            val placeholderHistory = newHistory.copy(startState = newHistory.endState, endState = "", startEpochTime = newHistory.endEpochTime, endEpochTime = 0)
-            resultList += placeholderHistory
-            map.updated(record.machine, (placeholderHistory, resultList.size - 1))
-          } else map
-        } else { // if endState is not empty, add one more history record
-          if (oldHistory.endState != currentState) {
-            val newHistory = oldHistory.copy(startState = oldHistory.endState, endState = record.state, startEpochTime = oldHistory.endEpochTime, endEpochTime = record.epochTime) // clone
-            resultList += newHistory
-            val placeholderHistory = newHistory.copy(startState = newHistory.endState, endState = "", startEpochTime = newHistory.endEpochTime, endEpochTime = 0)
-            resultList += placeholderHistory
-            map.updated(record.machine, (placeholderHistory, resultList.size - 1))
-          } else map
-        }
-      }
-    }
-    resultList.toList
-  }
-
-  test("test calculate") {
-    // please generate the test cases for the function calculate like the below examples
-    val logs = List(
-      MachineAction("M1", "IDLE", 1800),
-      MachineAction("M2", "IDLE", 1801),
-      MachineAction("M2", "Running", 1802),
-      MachineAction("M3", "IDLE", 1803),
-      MachineAction("M4", "IDLE", 1804),
-      MachineAction("M5", "IDLE", 1805),
-      MachineAction("M1", "RUNNING", 1806),
-      MachineAction("M2", "Stopping", 1807),
-      MachineAction("M3", "RUNNING", 1808),
-      MachineAction("M4", "IDLE", 1809),
-      MachineAction("M5", "RUNNING", 1810)
-    )
-    calculate(logs).foreach(println)
   }
 }
