@@ -6,7 +6,6 @@ import org.apache.spark.sql.functions.{col, max}
 import org.scalatest.funsuite.AnyFunSuite
 
 import java.io.File
-import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 import scala.reflect.io.Directory
 
@@ -115,13 +114,11 @@ class Practice extends AnyFunSuite {
     productTotalQuantity.sortByKey().collect.foreach(println)
   }
 
-  test("cogroup"){
+  test("cogroup") {
 
   }
 
-  test("cartesian"){}
-
-
+  test("cartesian") {}
 
   /**
    * Below are Personal practices.
