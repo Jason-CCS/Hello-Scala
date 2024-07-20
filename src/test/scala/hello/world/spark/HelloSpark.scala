@@ -9,7 +9,7 @@ import java.io.File
 import scala.collection.mutable.ListBuffer
 import scala.reflect.io.Directory
 
-class Practice extends AnyFunSuite {
+class HelloSpark extends AnyFunSuite {
   val spark = SparkSession.builder.appName("Hello Spark").master("local[1]").getOrCreate()
   val sc = spark.sparkContext
   val config = new SparkConf
