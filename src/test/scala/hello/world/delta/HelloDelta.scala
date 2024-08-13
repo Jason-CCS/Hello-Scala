@@ -1,4 +1,4 @@
-package hello.world.delta_lake
+package hello.world.delta
 
 import io.delta.tables.DeltaTable
 import org.apache.spark.sql.SparkSession
@@ -11,7 +11,7 @@ class HelloDelta extends AnyFunSuite {
     .config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.delta.catalog.DeltaCatalog")
     .getOrCreate()
 
-  val tableLocation = "./tmp/delta-table"
+  val tableLocation = "tmp/delta-table"
 
   test("test update") {
     val data = spark.range(0, 5)
@@ -25,7 +25,7 @@ class HelloDelta extends AnyFunSuite {
     df2.show()
   }
 
-  test("conditional update") {
+  test("update, delete, merge (upsert)") {
     val deltaTable = DeltaTable.forPath(spark, tableLocation)
 
     // Update every even value by adding 100 to it

@@ -8,6 +8,7 @@ libraryDependencies ++= Seq(
   "ch.qos.logback" % "logback-classic" % "1.1.7",
   "org.apache.spark" %% "spark-sql" % "3.5.1",
   "io.delta" %% "delta-spark" % "3.2.0",
+
   "org.scalatest" %% "scalatest" % "3.2.9" % Test,
   "org.scalactic" %% "scalactic" % "3.2.9" % Test
 )
