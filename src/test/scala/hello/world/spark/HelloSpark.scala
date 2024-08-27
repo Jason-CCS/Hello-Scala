@@ -1,18 +1,29 @@
 package hello.world.spark
 
-import org.apache.spark.SparkConf
+import org.apache.log4j.{Level, Logger}
+import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.sql.functions.{col, max}
+import org.apache.spark.sql.functions._
+import org.scalatest.BeforeAndAfter
 import org.scalatest.funsuite.AnyFunSuite
 
 import java.io.File
 import scala.collection.mutable.ListBuffer
 import scala.reflect.io.Directory
 
-class HelloSpark extends AnyFunSuite {
-  val spark = SparkSession.builder.appName("Hello Spark").master("local[1]").getOrCreate()
-  val sc = spark.sparkContext
-  val config = new SparkConf
+class HelloSpark extends AnyFunSuite with BeforeAndAfter {
+  var spark: SparkSession = _
+  var sc: SparkContext = _
+
+  before {
+    spark = SparkSession.builder.appName("Hello Spark").master("local[1]").getOrCreate()
+    sc = spark.sparkContext
+    spark.sparkContext.setLogLevel("WARN")
+  }
+
+  after {
+    spark.close()
+  }
 
   /**
    * RDD Basic Examples
@@ -198,7 +209,21 @@ class HelloSpark extends AnyFunSuite {
     println(ordersRDD.sortByKey(ascending = false).collect().toList)
   }
 
-  test("Write a query that calculates the difference between the highest salaries found in the marketing and engineering departments. Output just the absolute difference in salaries.") {
+  test("Your output should include the highest-paid title or multiple titles with the same salary.") {
+    val worker = spark.read.option("header", "true").csv("input/worker.csv")
+    val title = spark.read.option("header", "true").csv("input/title.csv")
+    val joined = worker.join(title, worker("worker_id") === title("worker_ref_id")).cache()
+    val top = joined.select(col("salary").cast("Int")).orderBy(desc("salary")).first().getInt(0)
+    println(top)
+
+    joined.filter(col("salary") === top).select("worker_title").show(false)
+  }
+
+  test("Coding: Salaries Differences") {
+    /**
+     * Write a query that calculates the difference between the highest salaries found in the marketing and engineering departments.
+     * Output just the absolute difference in salaries.
+     */
     val employees = spark.read.option("header", "true").csv("input/db_employee.csv")
     val depts = spark.read.option("header", "true").csv("input/db_dept.csv")
     val joinedDF = employees.join(depts, employees("department_id") === depts("id")).drop(depts("id")).cache()
@@ -208,13 +233,65 @@ class HelloSpark extends AnyFunSuite {
     println(math.abs(maxInEngineering - maxInMarketing))
   }
 
-  test("Your output should include the highest-paid title or multiple titles with the same salary.") {
-    val worker = spark.read.option("header", "true").csv("input/worker.csv")
-    val title = spark.read.option("header", "true").csv("input/title.csv")
-    val joined = worker.join(title, worker("worker_id") === title("worker_ref_id")).cache()
-    val top = joined.select(col("salary").cast("Int")).first().getInt(0)
-    println(top)
+  test("SQL: Salaries Differences") {
+    /**
+     * Write a query that calculates the difference between the highest salaries found in the marketing and engineering departments.
+     * Output just the absolute difference in salaries.
+     */
+    spark.read.option("header", "true").csv("input/db_employee.csv").createOrReplaceTempView("employee")
+    spark.read.option("header", "true").csv("input/db_dept.csv").createOrReplaceTempView("department")
+    spark.sql(
+      """
+      SELECT ABS((SELECT MAX(salary) FROM employee JOIN department ON employee.department_id = department.id WHERE department = 'engineering') -
+               (SELECT MAX(salary) FROM employee JOIN department ON employee.department_id = department.id WHERE department = 'marketing')) AS sal_diff
+        """).show(false)
+  }
 
-    joined.filter(col("salary") === top).select("worker_title").show(false)
+  test("SQL: Users By Average Session Time") {
+    /**
+     * Calculate each user's average session time.
+     * A session is defined as the time difference between a page_load and page_exit.
+     * For simplicity, assume a user has only 1 session per day and if there are multiple of the same events on that day,
+     * consider only the latest page_load and earliest page_exit,
+     * with an obvious restriction that load time event should happen before exit time event.
+     * Output the user_id and their average session time.
+     */
+    spark.read.option("header", "true").csv("input/facebook_web_log.csv").withColumn("timestamp", unix_timestamp(col("timestamp")).cast("timestamp")).createOrReplaceTempView("facebook_web_log")
+    spark.sql("select * from facebook_web_log").printSchema()
+
+    // Inner JOIN on user_id and date_only can retain non-null value only,
+    // cause some user_id might have page_load_ts only but do not have page_exit_ts.
+    // In this case, we will only have page_load_ts in table a, but won't have page_exit_ts in table b.
+    // And if we join on user_id and date_only, a.date_only has value, but b.date_only is null.
+    // INNER JOIN can filter out a.date_only != b.date_only
+//    spark.sql(
+//      """
+//        |select a.user_id, avg(page_exit_ts - page_load_ts) from
+//        |(select user_id, date(timestamp) as date_only, max(timestamp) as page_load_ts
+//        |from facebook_web_log
+//        |where action='page_load'
+//        |group by user_id, date(timestamp)) as a
+//        |inner join
+//        |(select user_id, date(timestamp) as date_only, min(timestamp) as page_exit_ts
+//        |from facebook_web_log
+//        |where action='page_exit'
+//        |group by user_id, date(timestamp)) as b
+//        |on a.user_id=b.user_id and a.date_only = b.date_only
+//        |where page_load_ts < page_exit_ts
+//        |group by a.user_id;
+//        |""".stripMargin).show(false)
+
+    // possible to have one query only without subquery? No
+    // but possible to have no join as below.
+    // This is more spark functional way.
+    spark.sql(
+      """
+        |SELECT user_id, avg(diff_seconds) FROM
+        |(SELECT user_id, (unix_timestamp(min(if(action='page_exit', timestamp, NULL)))-unix_timestamp(max(if(action='page_load', timestamp, NULL)))) AS diff_seconds
+        |FROM facebook_web_log
+        |GROUP BY user_id, date(timestamp))
+        |WHERE diff_seconds is NOT NULL
+        |GROUP BY user_id
+        |""".stripMargin).show(false)
   }
 }
