@@ -209,7 +209,11 @@ class HelloSpark extends AnyFunSuite with BeforeAndAfter {
     println(ordersRDD.sortByKey(ascending = false).collect().toList)
   }
 
-  test("Your output should include the highest-paid title or multiple titles with the same salary.") {
+  test("Coding: Workers With The Highest Salaries") {
+    /**
+     * You have been asked to find the job titles of the highest-paid employees.
+     * Your output should include the highest-paid title or multiple titles with the same salary.
+     */
     val worker = spark.read.option("header", "true").csv("input/worker.csv")
     val title = spark.read.option("header", "true").csv("input/title.csv")
     val joined = worker.join(title, worker("worker_id") === title("worker_ref_id")).cache()
@@ -256,42 +260,76 @@ class HelloSpark extends AnyFunSuite with BeforeAndAfter {
      * with an obvious restriction that load time event should happen before exit time event.
      * Output the user_id and their average session time.
      */
-    spark.read.option("header", "true").csv("input/facebook_web_log.csv").withColumn("timestamp", unix_timestamp(col("timestamp")).cast("timestamp")).createOrReplaceTempView("facebook_web_log")
+    spark.read.option("header", "true").csv("input/facebook_web_log.csv").withColumn("timestamp", col("timestamp").cast("timestamp")).createOrReplaceTempView("facebook_web_log")
     spark.sql("select * from facebook_web_log").printSchema()
+    spark.sql("select * from facebook_web_log").show(false)
 
     // Inner JOIN on user_id and date_only can retain non-null value only,
     // cause some user_id might have page_load_ts only but do not have page_exit_ts.
     // In this case, we will only have page_load_ts in table a, but won't have page_exit_ts in table b.
     // And if we join on user_id and date_only, a.date_only has value, but b.date_only is null.
     // INNER JOIN can filter out a.date_only != b.date_only
-//    spark.sql(
-//      """
-//        |select a.user_id, avg(page_exit_ts - page_load_ts) from
-//        |(select user_id, date(timestamp) as date_only, max(timestamp) as page_load_ts
-//        |from facebook_web_log
-//        |where action='page_load'
-//        |group by user_id, date(timestamp)) as a
-//        |inner join
-//        |(select user_id, date(timestamp) as date_only, min(timestamp) as page_exit_ts
-//        |from facebook_web_log
-//        |where action='page_exit'
-//        |group by user_id, date(timestamp)) as b
-//        |on a.user_id=b.user_id and a.date_only = b.date_only
-//        |where page_load_ts < page_exit_ts
-//        |group by a.user_id;
-//        |""".stripMargin).show(false)
+    val s1 = spark.sql(
+      """
+        |select a.user_id, avg(unix_timestamp(page_exit_ts) - unix_timestamp(page_load_ts)) as avg_seconds from
+        |(select user_id, date(timestamp) as date_only, max(timestamp) as page_load_ts
+        |from facebook_web_log
+        |where action='page_load'
+        |group by user_id, date(timestamp)) as a
+        |inner join
+        |(select user_id, date(timestamp) as date_only, min(timestamp) as page_exit_ts
+        |from facebook_web_log
+        |where action='page_exit'
+        |group by user_id, date(timestamp)) as b
+        |on a.user_id=b.user_id and a.date_only = b.date_only
+        |where page_load_ts < page_exit_ts
+        |group by a.user_id;
+        |""".stripMargin)
+    s1.printSchema()
+    s1.show(false)
 
     // possible to have one query only without subquery? No
     // but possible to have no join as below.
     // This is more spark functional way.
-    spark.sql(
+    val s2 = spark.sql(
       """
-        |SELECT user_id, avg(diff_seconds) FROM
+        |SELECT user_id, avg(diff_seconds) as avg_seconds FROM
         |(SELECT user_id, (unix_timestamp(min(if(action='page_exit', timestamp, NULL)))-unix_timestamp(max(if(action='page_load', timestamp, NULL)))) AS diff_seconds
         |FROM facebook_web_log
         |GROUP BY user_id, date(timestamp))
         |WHERE diff_seconds is NOT NULL
         |GROUP BY user_id
-        |""".stripMargin).show(false)
+        |""".stripMargin)
+    s2.printSchema()
+    s2.show(false)
+  }
+
+  test("SQL: Finding User Purchases") {
+    /**
+     * Write a query that'll identify returning active users.
+     * A returning active user is a user that has made a second purchase within 7 days of any other of their purchases.
+     * Output a list of user_ids of these returning active users.
+     */
+    spark.read.option("header", "true").csv("input/amazon_transactions.csv").withColumn("created_at", col("created_at").cast("date")).createOrReplaceTempView("transactions")
+    spark.sql("select * from transactions").printSchema()
+    spark.sql("select * from transactions").show(false)
+
+    /**
+     * Self Join use case.
+     * When you want to pair your row of data with other rows, then you can do self join for pairing up.
+     */
+    val s1 = spark.sql(
+      """
+        |SELECT DISTINCT t1.user_id FROM
+        |transactions AS t1
+        |JOIN
+        |transactions AS t2
+        |ON t1.user_id = t2.user_id
+        |WHERE t1.id != t2.id AND abs(date_diff(t1.created_at, t2.created_at)) BETWEEN 0 AND 7
+        |ORDER BY t1.user_id
+        |""".stripMargin)
+
+    s1.printSchema()
+    s1.show(false)
   }
 }
