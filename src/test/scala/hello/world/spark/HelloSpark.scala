@@ -332,4 +332,29 @@ class HelloSpark extends AnyFunSuite with BeforeAndAfter {
     s1.printSchema()
     s1.show(false)
   }
+
+  test("SQL: Highest Energy Consumption"){
+    /**
+     * Find the date with the highest total energy consumption from the Meta/Facebook data centers.
+     * Output the date along with the total energy consumption across all data centers.
+     */
+    spark.read.option("header", "true").csv("input/fb_asia_energy.csv").createOrReplaceTempView("fb_asia_energy")
+    spark.read.option("header", "true").csv("input/fb_eu_energy.csv").createOrReplaceTempView("fb_eu_energy")
+    spark.read.option("header", "true").csv("input/fb_na_energy.csv").createOrReplaceTempView("fb_na_energy")
+
+    /**
+     * THE result of SELECT statement can be used as values to re-evaluate.
+     */
+    val s1 = spark.sql(
+      """
+        |With sum_consumption_table as
+        |(SELECT date, sum(consumption) as sum_consumption FROM
+        |(SELECT * FROM fb_asia_energy UNION SELECT * FROM fb_eu_energy UNION SELECT * FROM fb_na_energy)
+        |GROUP BY date)
+        |SELECT date, sum_consumption
+        |FROM sum_consumption_table
+        |WHERE sum_consumption = (SELECT max(sum_consumption) FROM sum_consumption_table)
+        |""".stripMargin)
+    s1.show(false)
+  }
 }
