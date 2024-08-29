@@ -1,7 +1,7 @@
 package hello.world.spark
 
 import org.apache.log4j.{Level, Logger}
-import org.apache.spark.{SparkConf, SparkContext}
+import org.apache.spark.{HashPartitioner, SparkConf, SparkContext}
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions._
 import org.scalatest.BeforeAndAfter
@@ -151,7 +151,6 @@ class HelloSpark extends AnyFunSuite with BeforeAndAfter {
     val text = sc.textFile("input/news")
     val words = text.flatMap(line => line.split(" "))
       .filter(w => w.forall(_.isLetter)) // filter out words have non-letter
-      .cache() // words will be reused again. cache it in worker.csv memory.
     println(s"we have ${words.count} words.")
 
     /**
@@ -164,7 +163,8 @@ class HelloSpark extends AnyFunSuite with BeforeAndAfter {
     }) // eg. (a, [p, p, l, e])
 
     // associate all the dest chars with they first char as key. eg. (a, List(s, n, d, l, l, o, w, i, n, g, etc)), shuffling between executors.
-    val links = charToOtherChars.reduceByKey((l1, l2) => l1 ::: l2).cache()
+    // use partitioner here, so we can have better performance when doing shuffling in the real cluster
+    val links = charToOtherChars.reduceByKey((l1, l2) => l1 ::: l2).partitionBy(new HashPartitioner(26)).cache() // cache here cause links will be reused many times.
     println(links.collect.mkString("Array(", ", ", ")")) // collect(), get data from driver
 
     var ranks = sc.parallelize('a' to 'z').map((_, 1.0)) // default each char as 1.0 initial rank score.
